@@ -34,5 +34,8 @@
 }
 
 .single-item .remove-btn:hover {
-  background: #900e0e;
+  background: #a90707;
+}
+.single-item input[type="checkbox"]:hover {
+  transform: scale(1.15);
 }

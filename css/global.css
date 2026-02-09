@@ -23,4 +23,12 @@ body {
   border-radius: 0.25rem;
   padding: 2rem;
   position: relative;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.form-section:hover {
+  transform: translateY(-3px);
+  transition: transform 500ms ease;
+  box-shadow: 0 25px 70px rgba(181, 181, 181, 0.4);
 }
