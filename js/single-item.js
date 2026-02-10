@@ -1,7 +1,9 @@
-function createSingleItem(item) {
-  var $div = $('<div class="single-item"></div>');
+// Create SingleItem Element
+export function createSingleItem(item) {
+  const div = document.createElement("div");
+  div.className = "single-item";
 
-  $div.html(`
+  div.innerHTML = `
     <input type="checkbox" ${item.completed ? "checked" : ""} />
     <p style="text-decoration: ${item.completed ? "line-through" : "none"}">
       ${item.name}
@@ -12,10 +14,7 @@ function createSingleItem(item) {
     <button class="btn icon-btn remove-btn" type="button">
       <i class="fa-regular fa-trash-can"></i>
     </button>
-  `);
-  $div.find('input[type="checkbox"]').on("change", () => {
-    editCompleted(item.id);
-  });
+  `;
 
-  return $div;
+  return div;
 }
