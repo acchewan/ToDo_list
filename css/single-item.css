@@ -34,6 +34,10 @@
 }
 
 .single-item .remove-btn:hover {
+  background: #900e0e;
+}
+
+.single-item .remove-btn:hover {
   background: #a90707;
 }
 .single-item input[type="checkbox"]:hover {
