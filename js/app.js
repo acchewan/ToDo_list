@@ -78,7 +78,6 @@ export function removeItem(itemId) {
   items = items.filter((item) => item.id !== itemId);
   setLocalStorage(items);
   render();
-  setTimeout(() => alert("Item Deleted Successfully!"), 10);
 }
 
 // Generate unique ID
@@ -96,5 +95,4 @@ export function addItem(itemName) {
   items = [...items, newItem];
   setLocalStorage(items);
   render();
-  setTimeout(() => alert("Item Added Successfully!"), 10);
 }

@@ -6,7 +6,7 @@ export function createForm(editId, itemToEdit) {
 
   // added value and dynamic button name
   form.innerHTML = `
-    <h2>TODO LIST</h2>
+    <h2 style="font-weight: 500">TODO LIST</h2>
     <div class="form-control">
       <input
         type="text"
