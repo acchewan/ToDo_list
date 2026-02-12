@@ -25,7 +25,7 @@
   font-size: 1rem;
 }
 
-.single-item .btn:hover {
+.single-item .edit-btn:hover {
   background: #0e7490;
 }
 
@@ -34,12 +34,21 @@
 }
 
 .single-item .remove-btn:hover {
-  background: #900e0e;
-}
-
-.single-item .remove-btn:hover {
   background: #a90707;
 }
+
+.single-item .btn {
+  transition: all 0.2s ease;
+}
+
+.single-item input[type="checkbox"] {
+  transition: transform 0.2s ease;
+}
+
 .single-item input[type="checkbox"]:hover {
   transform: scale(1.15);
+}
+
+.single-item input[type="checkbox"]:focus {
+  outline: 2px solid #06b6d4;
 }

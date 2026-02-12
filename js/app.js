@@ -55,12 +55,14 @@ export function setEditId(itemId) {
   render();
 
   // Focus input after render
-  setTimeout(() => {
-    const input = document.querySelector(".form-input");
-    if (input) {
-      input.focus();
-    }
-  }, 0);
+  if (itemId) {
+    setTimeout(() => {
+      const input = document.querySelector(".form-input");
+      if (input) {
+        input.focus();
+      }
+    }, 0);
+  }
 }
 
 export function editCompleted(itemId) {

@@ -1,4 +1,4 @@
-import { addItem, updateItemName } from "./app.js";
+import { addItem, updateItemName, setEditId } from "./app.js";
 
 // Create Form Element
 export function createForm(editId, itemToEdit) {
@@ -17,6 +17,7 @@ export function createForm(editId, itemToEdit) {
       <button type="submit" class="btn">
         ${editId ? "edit item" : "add item"}
       </button>
+      ${editId ? '<button type="button" class="btn cancel-btn">cancel</button>' : ""}
     </div>
   `;
 
@@ -39,6 +40,14 @@ export function createForm(editId, itemToEdit) {
 
     input.value = "";
   });
+
+  // Add cancel button listener
+  const cancelBtn = form.querySelector(".cancel-btn");
+  if (cancelBtn) {
+    cancelBtn.addEventListener("click", () => {
+      setEditId(null);
+    });
+  }
 
   return form;
 }
