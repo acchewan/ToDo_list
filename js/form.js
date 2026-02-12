@@ -13,6 +13,8 @@ export function createForm(editId, itemToEdit) {
         class="form-input"
         placeholder="e.g. make presentation"
         value="${itemToEdit ? itemToEdit.name : ""}"
+        maxlength="100"
+        required
       />
       <button type="submit" class="btn">
         ${editId ? "edit item" : "add item"}
@@ -27,7 +29,8 @@ export function createForm(editId, itemToEdit) {
     const value = input.value.trim();
 
     if (!value) {
-      alert("please provide value", "error");
+      input.classList.add("error");
+      setTimeout(() => input.classList.remove("error"), 600);
       return;
     }
 
@@ -48,6 +51,13 @@ export function createForm(editId, itemToEdit) {
       setEditId(null);
     });
   }
+
+  // Add keyboard shortcut for escape
+  form.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && editId) {
+      setEditId(null);
+    }
+  });
 
   return form;
 }

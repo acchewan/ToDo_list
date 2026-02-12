@@ -1,8 +1,9 @@
 .single-item {
   display: grid;
   grid-template-columns: auto 1fr auto auto;
-  column-gap: 1rem;
+  column-gap: 0.75rem;
   align-items: center;
+  row-gap: 0.5rem;
 }
 
 .single-item p {
@@ -18,7 +19,7 @@
 .single-item .btn {
   cursor: pointer;
   color: #fff;
-  background: #06b6d4;
+  background: #bcc5c6;
   border: transparent;
   border-radius: 0.25rem;
   padding: 0.375rem 0.75rem;
