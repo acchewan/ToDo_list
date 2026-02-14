@@ -16,6 +16,11 @@ export function createForm(editId, itemToEdit) {
         maxlength="100"
         required
       />
+      <input 
+    type="date" 
+    class="form-date"
+    value="${itemToEdit ? itemToEdit.dueDate : ""}"
+  />
       <button type="submit" class="btn">
         ${editId ? "edit item" : "add item"}
       </button>
@@ -26,7 +31,9 @@ export function createForm(editId, itemToEdit) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const input = form.querySelector(".form-input");
+    const dateInput = form.querySelector(".form-date");
     const value = input.value.trim();
+    const dateValue = dateInput.value;
 
     if (!value) {
       input.classList.add("error");
@@ -36,12 +43,13 @@ export function createForm(editId, itemToEdit) {
 
     // added conditions
     if (editId) {
-      updateItemName(value);
+      updateItemName(value, dateValue);
     } else {
-      addItem(value);
+      addItem(value, dateValue);
     }
 
     input.value = "";
+    dateInput.value = "";
   });
 
   // Add cancel button listener

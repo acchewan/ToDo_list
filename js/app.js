@@ -36,10 +36,10 @@ function render() {
 render();
 
 // Update Item Name Function
-export function updateItemName(newName) {
+export function updateItemName(newName, newDate) {
   items = items.map((item) => {
     if (item.id === editId) {
-      return { ...item, name: newName };
+      return { ...item, name: newName, dueDate: newDate };
     }
     return item;
   });
@@ -88,13 +88,15 @@ function generateId() {
 }
 
 // Add Item Function
-export function addItem(itemName) {
+export function addItem(itemName, dueDate) {
   const newItem = {
     name: itemName,
     completed: false,
     id: generateId(),
+    dueDate: dueDate || "",
   };
   items = [...items, newItem];
+
   setLocalStorage(items);
   render();
 }

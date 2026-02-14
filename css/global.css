@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #fafafa;
+  background: #eef3fb;
   font-family: Avenir, sans-serif;
   font-weight: 500;
   line-height: 1.2;
@@ -20,7 +20,7 @@ body {
   margin-top: 5rem;
   margin-bottom: 5rem;
   max-width: 30rem;
-  background: #fff;
+  background: #ffffff;
   border-radius: 0.5rem;
   padding: 2rem;
   position: relative;

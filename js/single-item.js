@@ -8,7 +8,7 @@ export function createSingleItem(item) {
   div.innerHTML = `
     <input type="checkbox" ${item.completed ? "checked" : ""} />
     <p style="text-decoration: ${item.completed ? "line-through" : "none"}">
-      ${item.name}
+      ${item.name} ${item.dueDate}
     </p>
     <button class="btn icon-btn edit-btn" type="button">
       <i class="fa-regular fa-pen-to-square"></i>
