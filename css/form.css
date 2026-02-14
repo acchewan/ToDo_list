@@ -90,3 +90,18 @@ form h2 {
 .form-control .cancel-btn:hover {
   background: #4b5563;
 }
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btn-container button {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}

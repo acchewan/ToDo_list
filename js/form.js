@@ -19,13 +19,20 @@ export function createForm(editId, itemToEdit) {
       <input 
     type="date" 
     class="form-date"
-    value="${itemToEdit ? itemToEdit.dueDate : ""}"
+    value="${itemToEdit ? itemToEdit.dueDate || "" : ""}"
   />
-      <button type="submit" class="btn">
-        ${editId ? "edit item" : "add item"}
-      </button>
-      ${editId ? '<button type="button" class="btn cancel-btn">cancel</button>' : ""}
-    </div>
+     <div class="btn-container">
+    ${
+      editId
+        ? `
+          <button type="button" class="cancel-btn">Cancel</button>
+          <button type="submit" class="edit-btn">Edit Item</button>
+        `
+        : `
+          <button type="submit" class="add-btn">Add Item</button>
+        `
+    }
+  </div>
   `;
 
   form.addEventListener("submit", (e) => {
