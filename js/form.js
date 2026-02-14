@@ -34,6 +34,9 @@ export function createForm(editId, itemToEdit) {
     }
   </div>
   `;
+  const dateInput = form.querySelector(".form-date");
+  const today = new Date().toISOString().split("T")[0];
+  dateInput.setAttribute("min", today);
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -47,14 +50,18 @@ export function createForm(editId, itemToEdit) {
       setTimeout(() => input.classList.remove("error"), 600);
       return;
     }
+    if (dateValue) {
+      const selectedDate = new Date(dateValue);
+      const today = new Date();
 
+      today.setHours(0, 0, 0, 0);
+    }
     // added conditions
     if (editId) {
       updateItemName(value, dateValue);
     } else {
       addItem(value, dateValue);
     }
-
     input.value = "";
     dateInput.value = "";
   });
