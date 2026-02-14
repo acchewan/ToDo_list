@@ -96,7 +96,11 @@ export function addItem(itemName, dueDate) {
     dueDate: dueDate || "",
   };
   items = [...items, newItem];
-
+  items.sort((a, b) => {
+    const da = a.dueDate ? new Date(a.dueDate) : new Date();
+    const db = b.dueDate ? new Date(b.dueDate) : new Date();
+    return da - db;
+  });
   setLocalStorage(items);
   render();
 }
