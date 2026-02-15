@@ -1,5 +1,42 @@
 import { editCompleted, removeItem, setEditId } from "./app.js";
+function getDueStatus(dueDate) {
+  if (!dueDate) return "";
 
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const selected = new Date(dueDate);
+  selected.setHours(0, 0, 0, 0);
+
+  const diffTime = selected - today;
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays < 0) {
+    return `Overdue by ${Math.abs(diffDays)} day${Math.abs(diffDays) > 1 ? "s" : ""}`;
+  }
+
+  if (diffDays === 0) {
+    return "Due today";
+  }
+
+  return `Due in ${diffDays} day${diffDays > 1 ? "s" : ""}`;
+}
+function getStatusClass(dueDate) {
+  if (!dueDate) return "";
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const selected = new Date(dueDate);
+  selected.setHours(0, 0, 0, 0);
+
+  const diffTime = selected - today;
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays < 0) return "overdue";
+  if (diffDays === 0) return "today";
+  return "upcoming";
+}
 // Create SingleItem Element
 export function createSingleItem(item) {
   const div = document.createElement("div");
@@ -12,7 +49,7 @@ export function createSingleItem(item) {
       ${item.name}</span>
       ${
         item.dueDate
-          ? `<span class="item-date">Due: ${item.dueDate}</span>`
+          ? `<span class="item-date ${getStatusClass(item.dueDate)}">${getDueStatus(item.dueDate)}</span>`
           : ""
       }
     </div>

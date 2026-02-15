@@ -81,3 +81,19 @@
   font-size: 16px;
   font-weight: 500;
 }
+/* Overdue */
+.overdue {
+  color: #ef4444;
+  font-weight: 500;
+}
+
+/* Due Today */
+.today {
+  color: #f59e0b;
+  font-weight: 500;
+}
+
+/* Upcoming */
+.upcoming {
+  color: #10b981;
+}
